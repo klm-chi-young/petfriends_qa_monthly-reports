@@ -1,0 +1,181 @@
+
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>2026년 4월 QA 월간 보고서</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; padding: 20px; color: #172B4D; line-height: 1.5; }
+            .container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .card { background: white; border-radius: 3px; border: 1px solid #dfe1e6; padding: 18px; box-shadow: 0 1px 1px rgba(9,30,66,.25); }
+            .full { grid-column: span 2; }
+            
+            .summary-box { display: flex; gap: 15px; margin-bottom: 5px; }
+            .summary-item { flex: 1; background: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 6px; text-align: center; }
+            .summary-item .label { font-size: 13px; color: #6b778c; margin-bottom: 5px; font-weight: bold; }
+            .summary-item .value { font-size: 28px; font-weight: bold; color: #0052cc; }
+            .summary-item .unit { font-size: 14px; color: #172b4d; margin-left: 3px; font-weight: normal; }
+
+            .info-bar { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; padding: 12px 20px; background: #ebf2ff; border-left: 5px solid #0052cc; border-radius: 4px; font-size: 13px; color: #0747A6; }
+            
+            h2 { font-size: 14px; border-bottom: 2px solid #0052cc; padding: 0; margin-bottom: 12px; color: #0747A6; }
+            h2 a { color: inherit; text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 10px; margin: -10px; transition: all 0.2s ease; }
+            h2 a:hover { background-color: #f0f5ff; color: #0052cc; text-decoration: underline; }
+            h2 a::after { content: '상세보기 ↗'; font-size: 10px; font-weight: normal; opacity: 0.7; }
+            
+            table { width: 100%; border-collapse: collapse; font-size: 11px; table-layout: fixed; }
+            th, td { border: 1px solid #dfe1e6; padding: 8px; text-align: center; word-break: break-all; }
+            th { background: #f4f5f7; color: #6B778C; }
+            .chart-area { display: flex; align-items: center; justify-content: center; height: 200px; }
+            .issue-row:hover { background-color: #fff9db; cursor: pointer; }
+            .jira-key { color: #0052cc; text-decoration: none; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="full">
+                <h1 style="font-size: 26px; margin:0; color: #172B4D;">📊 2026년 4월 QA 월간 보고</h1>
+                
+                <div class="info-bar">
+                    <div>
+                        <span style="margin-right: 20px;">📅 <strong>생성일시:</strong> 2026-04-30 15:27</span>
+                        <span>💡 <strong>안내:</strong> 타이틀이나 파란색 숫자를 클릭하면 Jira로 이동합니다.</span>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <div class="summary-item">
+                        <div class="label">4월 QA 요청 진행률</div>
+                        <div class="value">81.8<span class="unit">%</span></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">4월 분석 이슈</div>
+                        <div class="value">135<span class="unit">건</span></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">2026년 핫픽스 발생</div>
+                        <div class="value" style="color: #d04437;">12<span class="unit">건</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20ORDER%20BY%20created%20DESC" target="_blank">1. 4월 QA요청 상태</a></h2>
+                <div style="color:#6b778c; font-size:11px; margin-bottom:10px;">완료율: 81.8% (63/77건)</div>
+                
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#4B89DC; border-radius:2px;"></span><span>QA 완료(배포완료)</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20AND%20status%20%3D%20%22QA%20%EC%99%84%EB%A3%8C%28%EB%B0%B0%ED%8F%AC%EC%99%84%EB%A3%8C%29%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">63</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#D9534F; border-radius:2px;"></span><span>QA 진행완료</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20AND%20status%20%3D%20%22QA%20%EC%A7%84%ED%96%89%EC%99%84%EB%A3%8C%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">9</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#F0AD4E; border-radius:2px;"></span><span>Holding</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20AND%20status%20%3D%20%22Holding%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">2</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#5CB85C; border-radius:2px;"></span><span>QA 진행중</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20AND%20status%20%3D%20%22QA%20%EC%A7%84%ED%96%89%EC%A4%91%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">2</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#5BC0DE; border-radius:2px;"></span><span>Request List</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=type%20%3D%20%22%EC%9E%91%EC%97%85%22%20AND%20project%20%3D%20%22QART%22%20AND%20sprint%20%3D%205794%20AND%20status%20%3D%20%22Request%20List%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">1</a>
+            </div>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20%22Hotfix%22%20AND%20sprint%20in%20%285138%2C%205421%2C%205793%2C%205827%29%20ORDER%20BY%20created%20DESC" target="_blank">2. 2026년 핫픽스 현황 (Sprint)</a></h2>
+                <div style="color:#6b778c; font-size:11px; margin-bottom:10px;">누적 발생 건수: 12건</div>
+                
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#4B89DC; border-radius:2px;"></span><span>2026년 1월 QA 이슈티켓</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20%22Hotfix%22%20AND%20sprint%20in%20%285138%2C%205421%2C%205793%2C%205827%29%20AND%20sprint%20%3D%20%222026%EB%85%84%201%EC%9B%94%20QA%20%EC%9D%B4%EC%8A%88%ED%8B%B0%EC%BC%93%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">5</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#D9534F; border-radius:2px;"></span><span>2026년 3월 QA 이슈티켓</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20%22Hotfix%22%20AND%20sprint%20in%20%285138%2C%205421%2C%205793%2C%205827%29%20AND%20sprint%20%3D%20%222026%EB%85%84%203%EC%9B%94%20QA%20%EC%9D%B4%EC%8A%88%ED%8B%B0%EC%BC%93%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">4</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#F0AD4E; border-radius:2px;"></span><span>2026년 2월 QA 이슈티켓</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20%22Hotfix%22%20AND%20sprint%20in%20%285138%2C%205421%2C%205793%2C%205827%29%20AND%20sprint%20%3D%20%222026%EB%85%84%202%EC%9B%94%20QA%20%EC%9D%B4%EC%8A%88%ED%8B%B0%EC%BC%93%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">2</a>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f6f6f6; font-size:12px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:10px; height:10px; background:#5CB85C; border-radius:2px;"></span><span>2026년 4월 QA 이슈티켓</span>
+                </div>
+                <a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20%22Hotfix%22%20AND%20sprint%20in%20%285138%2C%205421%2C%205793%2C%205827%29%20AND%20sprint%20%3D%20%222026%EB%85%84%204%EC%9B%94%20QA%20%EC%9D%B4%EC%8A%88%ED%8B%B0%EC%BC%93%22%20ORDER%20BY%20created%20DESC" target="_blank" style="font-weight:bold; color:#0052cc; text-decoration:none;">1</a>
+            </div>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20ORDER%20BY%20created%20DESC" target="_blank">3. 4월 이슈내역 개발 담당자</a></h2>
+                <div class="chart-area"><canvas id="assigneeChart"></canvas></div>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20ORDER%20BY%20created%20DESC" target="_blank">4. 4월 이슈내역 중요도 (UI/기능)</a></h2>
+                <table>
+                    <thead><tr><th>결함 유형</th><th>High</th><th>Medium</th><th>Low</th><th>Total</th></tr></thead>
+                    <tbody><tr><td style='background:#fdfdfd;'>UI/문구</td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22High%22%20AND%20%28summary%20~%20ui%20OR%20summary%20~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>1</a></td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Medium%22%20AND%20%28summary%20~%20ui%20OR%20summary%20~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>9</a></td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Low%22%20AND%20%28summary%20~%20ui%20OR%20summary%20~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>23</a></td><td style='font-weight:bold; background:#f9f9f9;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20%28summary%20~%20ui%20OR%20summary%20~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>33</a></td></tr><tr><td style='background:#fdfdfd;'>기능</td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22High%22%20AND%20%28summary%20%21~%20ui%20AND%20summary%20%21~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>6</a></td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Medium%22%20AND%20%28summary%20%21~%20ui%20AND%20summary%20%21~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>74</a></td><td><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Low%22%20AND%20%28summary%20%21~%20ui%20AND%20summary%20%21~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>22</a></td><td style='font-weight:bold; background:#f9f9f9;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20%28summary%20%21~%20ui%20AND%20summary%20%21~%20%EB%AC%B8%EA%B5%AC%29%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>102</a></td></tr><tr><td style='font-weight:bold; background:#f4f5f7;'>합계</td><td style='font-weight:bold; background:#f4f5f7;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22High%22%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>7</a></td><td style='font-weight:bold; background:#f4f5f7;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Medium%22%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>83</a></td><td style='font-weight:bold; background:#f4f5f7;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20AND%20priority%20%3D%20%22Low%22%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>45</a></td><td style='font-weight:bold; background:#f4f5f7;'><a href='https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20%22%EC%B2%98%EB%A6%AC%EA%B5%AC%EB%B6%84%5Bdropdown%5D%22%20IN%20%28%EC%88%98%EC%A0%95%EC%99%84%EB%A3%8C%2C%20%ED%98%84%EC%83%81%ED%83%9C%EC%9C%A0%EC%A7%80%2C%20%EC%B6%94%ED%9B%84%EC%88%98%EC%A0%95%29%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20ORDER%20BY%20created%20DESC' target='_blank' style='color:#0052cc; text-decoration:none;'>135</a></td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20priority%20%3D%20High%20AND%20created%20%3E%3D%20%222026-04-01%22%20AND%20created%20%3C%3D%20%222026-04-30%22%20AND%20sprint%20%3D%205827%20ORDER%20BY%20created%20DESC" target="_blank">5. 4월 주요 발견 이슈 (High)</a></h2>
+                <table>
+                    <tbody>
+                        <tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5202' target='_blank' class='jira-key'>QA-5202</a></td><td style='text-align:left;'>[주문/결제] 결제조건에 맞지 않는 주문쿠폰 클릭후 [적용하기] 클릭시 적용되어 보임.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5200' target='_blank' class='jira-key'>QA-5200</a></td><td style='text-align:left;'>[쿠폰함][주문/결제] 그룹쿠폰에 특정 결제수단 지정되어있으나 안내 문구 노출되지 않고 예외처리 동작하지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5198' target='_blank' class='jira-key'>QA-5198</a></td><td style='text-align:left;'>[HQ][쿠폰] 쿠폰 일괄 등록 엑셀 양식에 결제수단, 간편카드결제시 카드사 컬럼 추가되지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5173' target='_blank' class='jira-key'>QA-5173</a></td><td style='text-align:left;'>[상품상세] 첫구매 혜택가라는 텍스트는 노출되나 계산에 첫구매 혜택 누락됨</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5117' target='_blank' class='jira-key'>QA-5117</a></td><td style='text-align:left;'>[리뷰API개선] 리뷰등록완료시 흰화면 페이지로 이동됨 (리뷰상세, 마이>구매후기, 동일)</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5108' target='_blank' class='jira-key'>QA-5108</a></td><td style='text-align:left;'>[포인트 적립율] 옵션 추가 시 포인트 중복 적용으로 할인 금액 오노출</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5026' target='_blank' class='jira-key'>QA-5026</a></td><td style='text-align:left;'>[알림톡/LMS] 엑셀 업로드 성공시 500에러 노출됨 </td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5023' target='_blank' class='jira-key'>QA-5023</a></td><td style='text-align:left;'>[리팩토링][상품상세] 내새꾸 등록했으나 실질적으로 데이터 저장되지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5019' target='_blank' class='jira-key'>QA-5019</a></td><td style='text-align:left;'>[리팩토링][상품상세] 내새꾸 등록시 생년월일의 '일'리스트를 불러오지 못함.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2><a href="https://pet-friends.atlassian.net/issues/?jql=project%20%3D%20%22QA%22%20AND%20type%20%3D%20Bug%20AND%20priority%20%3D%20High%20AND%20status%20%21%3D%20%22Done%22%20AND%20status%20%21%3D%20%22Resolved%22%20ORDER%20BY%20created%20DESC" target="_blank">6. 4월 잔존 이슈 리스트</a></h2>
+                <table>
+                    <tbody>
+                        <tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5207' target='_blank' class='jira-key'>QA-5207</a></td><td style='text-align:left;'>[주문/결제] 간편카드결제로 결제 시도시 결제되지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5206' target='_blank' class='jira-key'>QA-5206</a></td><td style='text-align:left;'>[마이펫프][상품상세] 회차별쿠폰 정보에 결제수단(복수) 안내 문구와 간편카드결제 카드사 안내문구가 함께 노출됨</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5202' target='_blank' class='jira-key'>QA-5202</a></td><td style='text-align:left;'>[주문/결제] 결제조건에 맞지 않는 주문쿠폰 클릭후 [적용하기] 클릭시 적용되어 보임.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5200' target='_blank' class='jira-key'>QA-5200</a></td><td style='text-align:left;'>[쿠폰함][주문/결제] 그룹쿠폰에 특정 결제수단 지정되어있으나 안내 문구 노출되지 않고 예외처리 동작하지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5198' target='_blank' class='jira-key'>QA-5198</a></td><td style='text-align:left;'>[HQ][쿠폰] 쿠폰 일괄 등록 엑셀 양식에 결제수단, 간편카드결제시 카드사 컬럼 추가되지 않음.</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5173' target='_blank' class='jira-key'>QA-5173</a></td><td style='text-align:left;'>[상품상세] 첫구매 혜택가라는 텍스트는 노출되나 계산에 첫구매 혜택 누락됨</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5117' target='_blank' class='jira-key'>QA-5117</a></td><td style='text-align:left;'>[리뷰API개선] 리뷰등록완료시 흰화면 페이지로 이동됨 (리뷰상세, 마이>구매후기, 동일)</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5108' target='_blank' class='jira-key'>QA-5108</a></td><td style='text-align:left;'>[포인트 적립율] 옵션 추가 시 포인트 중복 적용으로 할인 금액 오노출</td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5026' target='_blank' class='jira-key'>QA-5026</a></td><td style='text-align:left;'>[알림톡/LMS] 엑셀 업로드 성공시 500에러 노출됨 </td></tr><tr class='issue-row'><td style='width:85px;'><a href='https://pet-friends.atlassian.net/browse/QA-5023' target='_blank' class='jira-key'>QA-5023</a></td><td style='text-align:left;'>[리팩토링][상품상세] 내새꾸 등록했으나 실질적으로 데이터 저장되지 않음.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            const aData = {"하워드(Howard/천곤홍)": 31, "콜벤(Colven/김종훈)": 13, "제러드 (Jared/윤상준)": 10, "딘(Dean/김형진)": 9, "제니 (Jenny/이자은)": 7, "줄리안(Julian/박재훈)": 7, "테디(Teddy/임동훈)": 7, "포비(Pobi/유진탁)": 7, "제이와이 (JY/송정엽)": 6, "유(Yoo/서은유)": 5, "미지정": 4, "죠스타(Jostar/황호세)": 4, "생이(SangE/남상이)": 3, "구름(Gureum/이승필)": 3, "제이드(Jade/조대희)": 3, "테스 (Tess/이태주)": 3, "메이슨(Mason/도진우)": 3, "준(June/염지윤)": 2, "플린(Flynn/고경호)": 2, "제이완(J-Wan/신주환)": 1, "써니(Sunny/안선희)": 1, "진크(Jincrates/이진규)": 1, "코니(connie/황해규)": 1, "에이미(Amy/김영미)": 1, "팀버(Timbre/박기오)": 1};
+            new Chart(document.getElementById('assigneeChart').getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(aData),
+                    datasets: [{
+                        data: Object.values(aData),
+                        backgroundColor: ['#4B89DC', '#48CFAD', '#ED5565', '#F6BB42', '#AC92EC', '#3BAFDA', '#D9534F']
+                    }]
+                },
+                options: { 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } } },
+                    cutout: '70%'
+                }
+            });
+        </script>
+    </body>
+    </html>
+    
